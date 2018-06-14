@@ -1,12 +1,26 @@
 #ifndef NJOY21
 #define NJOY21
 
-#include <experimental/optional>
+#include <variant>
+
+
+#ifdef USING_CPP17
+  #include <optional>
+#else 
+  #include <experimental/optional>
+
+  namespace std {
+    using namespace std::experimental;
+  }
+#endif
+
 #include <sstream>
 #include <unordered_set>
 #include <queue>
 #include <iomanip>
+#include <regex>
 
+#include "ENDFtk.hpp"
 #include "dimwits.hpp"
 #include "Log.hpp"
 #include "utility.hpp"
